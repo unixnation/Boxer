@@ -626,6 +626,11 @@ void DOSBOX_Init(void) {
 	Pint->Set_values(rates);
 	Pint->Set_help("Sample rate of the PC-Speaker sound generation.");
 
+	Pint = secprop->Add_int("wizpopfix",Property::Changeable::WhenIdle,0);
+	const char* wizpopfix[] = { "0", "6", "7", 0};
+	Pint->Set_values(wizpopfix);
+	Pint->Set_help("Reduces popping in Wizardry 6 / 7.");
+
 	secprop->AddInitFunction(&TANDYSOUND_Init,true);//done
 	const char* tandys[] = { "auto", "on", "off", 0};
 	Pstring = secprop->Add_string("tandy",Property::Changeable::WhenIdle,"auto");
